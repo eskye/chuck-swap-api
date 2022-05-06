@@ -1,5 +1,5 @@
 # chuck-swap-api
- Chuck Swap API is an openAPI compliant web service that abstracts away two downstream APIs; the [https://api.chucknorris.io](Chuck Norris API) and the [https://swapi.dev/api/](Star Wars API). 
+ Chuck Swap API is an openAPI compliant web service that abstracts away two downstream APIs; the [Chuck Norris API](https://api.chucknorris.io) and the [Star Wars API](https://swapi.dev/api/). 
 
 # Folder Content
  Clone the git repository from the url [https://github.com/eskye/chuck-swap-api.git](https://github.com/eskye/chuck-swap-api) to your PC.
