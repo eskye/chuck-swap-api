@@ -30,3 +30,9 @@
 1. open chuck-swapi-api/Sovtech.ChuckSwapi.sln.
 
    
+## Deployment 
+
+The chuck-swapi api is currently running on Heroku, and auto deployment was enabled for the repository. which automatically, deploy update made to heroku through Github actions. 
+
+Here's the URL of the deployed app on Heroku:
+[https://chuckswapi.herokuapp.com/swagger/index.html](https://chuckswapi.herokuapp.com/swagger/index.html)
