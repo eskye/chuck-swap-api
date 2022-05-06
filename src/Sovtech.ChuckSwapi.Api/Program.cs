@@ -3,7 +3,7 @@ using Sovtech.ChuckSwapi.ApplicationCore.Services;
 
 var builder = WebApplication.CreateBuilder(args);
 
-// Add services to the container.
+// Add services to the container. 
 
 builder.Services.AddControllers();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
@@ -12,7 +12,17 @@ builder.Services.AddSwaggerGen();
 
 builder.Services.AddRouting(options => options.LowercaseUrls = true);
 
+
+builder.Services.AddCors(options =>
+{
+    options.AddDefaultPolicy(corsBuilder =>
+    {
+        corsBuilder.AllowAnyOrigin().AllowAnyMethod().AllowAnyHeader();
+    });
+});
+
 var configuration = builder.Configuration;
+
 
 builder.Services.AddHttpClient<IChuckApiClient, ChuckApiClient>(c =>
 c.BaseAddress = new Uri(configuration.GetValue<string>("ApiClients:ChuckApiUrl")));
@@ -29,6 +39,8 @@ var app = builder.Build();
 
 app.UseSwagger();
 app.UseSwaggerUI();
+
+app.UseCors();
 
 app.UseHttpsRedirection();
 
