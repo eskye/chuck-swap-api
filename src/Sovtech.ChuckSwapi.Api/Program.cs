@@ -17,7 +17,7 @@ var configuration = builder.Configuration;
 builder.Services.AddHttpClient<IChuckApiClient, ChuckApiClient>(c =>
 c.BaseAddress = new Uri(configuration.GetValue<string>("ApiClients:ChuckApiUrl")));
 
-builder.Services.AddHttpClient<ISwapiApiClient, SwapiApiClient>(c => 
+builder.Services.AddHttpClient<ISwapiApiClient, SwapiApiClient>(c =>
 c.BaseAddress = new Uri(configuration.GetValue<string>("ApiClients:SwapApiUrl")));
 
 builder.Services.AddSingleton<IChuckService, ChuckService>();
@@ -26,12 +26,9 @@ builder.Services.AddSingleton<ISearchService, SearchService>();
 
 var app = builder.Build();
 
-// Configure the HTTP request pipeline.
-if (app.Environment.IsDevelopment())
-{
-    app.UseSwagger();
-    app.UseSwaggerUI();
-}
+
+app.UseSwagger();
+app.UseSwaggerUI();
 
 app.UseHttpsRedirection();
 
@@ -41,4 +38,3 @@ app.MapControllers();
 
 app.Run();
 
- 
