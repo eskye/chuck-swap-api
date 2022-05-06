@@ -15,7 +15,7 @@ public class SearchService : ISearchService
     }
     public async Task<ApiResponse<SearchResultResponse>> GetSearchQueries(string query)
     {
-        if(string.IsNullOrEmpty(query)) throw new ArgumentNullException("No search query provided");
+        if (string.IsNullOrEmpty(query)) throw new ArgumentNullException(nameof(query), "No search query provided");
 
         var jokeSearchResponse = await _chuckApiClient.GetJokesSearchResult(query);
         var jokeSearchResult = new JokeSearchResult("Chuck Norris Api Client", jokeSearchResponse.Data.Result);

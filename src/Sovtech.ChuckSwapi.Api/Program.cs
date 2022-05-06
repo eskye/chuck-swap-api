@@ -1,3 +1,4 @@
+using Sovtech.ChuckSwapi.Api.Middlewares;
 using Sovtech.ChuckSwapi.ApplicationCore.ApiClients;
 using Sovtech.ChuckSwapi.ApplicationCore.Services;
 
@@ -39,6 +40,8 @@ var app = builder.Build();
 
 app.UseSwagger();
 app.UseSwaggerUI();
+
+app.UseMiddleware<ErrorExceptionMiddleware>();
 
 app.UseCors();
 

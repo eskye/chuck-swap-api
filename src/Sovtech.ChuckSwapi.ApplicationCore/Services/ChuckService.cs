@@ -19,6 +19,7 @@ public class ChuckService : IChuckService
 
     public async Task<ApiResponse<JokeSearchResponse>> CategoryDetail(string category)
     {
+        if (string.IsNullOrEmpty(category)) throw new ArgumentNullException("No category provided");
         var response = await _chuckApiClient.GetRandomJokes(category);
         return new ApiResponse<JokeSearchResponse>(response.Data, "Category detail retrieved successfully");
     }
