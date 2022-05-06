@@ -22,6 +22,7 @@ c.BaseAddress = new Uri(configuration.GetValue<string>("ApiClients:SwapApiUrl"))
 
 builder.Services.AddSingleton<IChuckService, ChuckService>();
 builder.Services.AddSingleton<ISwapiService, SwapiService>();
+builder.Services.AddSingleton<ISearchService, SearchService>();
 
 var app = builder.Build();
 
