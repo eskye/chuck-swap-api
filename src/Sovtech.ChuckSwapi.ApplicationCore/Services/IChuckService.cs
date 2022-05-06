@@ -7,6 +7,5 @@ public interface IChuckService
     Task<ApiResponse<IReadOnlyList<string>>> Categories();
 
     Task<ApiResponse<JokeSearchResponse>> CategoryDetail(string category);
-     
-
+    
 }
