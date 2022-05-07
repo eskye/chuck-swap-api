@@ -11,8 +11,9 @@ public class SwapiService : ISwapiService
     {
         _swapiApiClient = swapiApiClient;
     }  
-    public async Task<ApiResponse<IReadOnlyList<PeopleResponse>>> PeopleList(int pageNumber = 1)
+    public async Task<ApiResponse<IReadOnlyList<PeopleResponse>>> PeopleList(int pageNumber)
     {
+        pageNumber = pageNumber <= 0  ? 1 : pageNumber;
         var response = await _swapiApiClient.GetAllStarWarsPeople(pageNumber);
         return new ApiResponse<IReadOnlyList<PeopleResponse>>(response.Data.Results, "List of all the Star Wars people");
     }

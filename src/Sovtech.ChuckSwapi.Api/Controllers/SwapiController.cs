@@ -20,9 +20,9 @@ public class SwapiController : ControllerBase
     [HttpGet("people")]
     [ProducesResponseType(StatusCodes.Status400BadRequest, Type = typeof(ApiErrorResponse))]
     [ProducesResponseType(StatusCodes.Status200OK, Type = typeof(ApiResponse<IReadOnlyList<PeopleResponse>>))]
-    public async Task<ActionResult<IReadOnlyList<PeopleResponse>>> GetPeople()
+    public async Task<ActionResult<IReadOnlyList<PeopleResponse>>> GetPeople(int page)
     {
-        var response = await _swapiService.PeopleList();
+        var response = await _swapiService.PeopleList(page);
         return Ok(response);
     }
 }

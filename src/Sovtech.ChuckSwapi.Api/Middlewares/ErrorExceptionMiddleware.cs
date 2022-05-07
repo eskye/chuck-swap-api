@@ -36,6 +36,7 @@ public class ErrorExceptionMiddleware
                     // unhandled error
                     response.StatusCode = StatusCodes.Status500InternalServerError;
                     responseModel = new ApiErrorResponse(error: "Oops, Something went wrong.");
+                    _logger.LogError(ex.Message, ex);
                     break;
             } 
             var result = JsonSerializer.Serialize(responseModel, new JsonSerializerOptions { PropertyNamingPolicy = JsonNamingPolicy.CamelCase });
