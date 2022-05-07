@@ -1,18 +1,13 @@
 version: '3.4'
+
 services:
-  proxy: 
-    ports: 
-      - "80:80" 
-  client: 
-    ports:
-      - "3000:80" 
-  api:
+  sovtech.chuckswapi.api:
     environment:
       - ASPNETCORE_ENVIRONMENT=Development
       - ASPNETCORE_URLS=https://+:443;http://+:80 
-    ports: 
+    ports:
+      - "8081:443"
       - "8080:80"
     volumes:
       - ${APPDATA}/tmp:/root/.microsoft/usersecrets:ro
       - ${APPDATA}/tmp:/root/.aspnet/https:ro
-  

@@ -20,7 +20,7 @@ jobs:
        HEROKU_API_KEY: ${{ secrets.HEROKU_API_KEY }}
       run: |
        
-        docker build -f src/Sovtech.ChuckSwapi.Api/Dockerfile . -t ${{ secrets.HEROKU_APP_NAME }}
+        docker build -f API/src/Sovtech.ChuckSwapi.Api/Dockerfile . -t ${{ secrets.HEROKU_APP_NAME }}
 
         docker tag ${{ secrets.HEROKU_APP_NAME }} registry.heroku.com/${{ secrets.HEROKU_APP_NAME }}/web
 

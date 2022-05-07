@@ -22,8 +22,7 @@ builder.Services.AddCors(options =>
     });
 });
 
-var configuration = builder.Configuration;
-
+var configuration = builder.Configuration; 
 
 builder.Services.AddHttpClient<IChuckApiClient, ChuckApiClient>(c =>
 c.BaseAddress = new Uri(configuration.GetValue<string>("ApiClients:ChuckApiUrl")));
