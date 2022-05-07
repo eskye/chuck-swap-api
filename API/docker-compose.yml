@@ -1,0 +1,8 @@
+version: '3.4'
+
+services:
+  sovtech.chuckswapi.api:
+    image: ${DOCKER_REGISTRY-}sovtechchuckswapiapi
+    build:
+      context: .
+      dockerfile: src/Sovtech.ChuckSwapi.Api/Dockerfile

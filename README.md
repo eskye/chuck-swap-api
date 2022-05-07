@@ -1,34 +1,55 @@
 # chuck-swap-api
+[![.NET](https://github.com/eskye/chuck-swap-api/actions/workflows/build-app.yml/badge.svg)](https://github.com/eskye/chuck-swap-api/actions/workflows/build-app.yml)
+# Introduction
+
  Chuck Swap API is an openAPI compliant web service that abstracts away two downstream APIs; the [Chuck Norris API](https://api.chucknorris.io) and the [Star Wars API](https://swapi.dev/api/). 
 
-# Folder Content
- Clone the git repository from the url [https://github.com/eskye/chuck-swap-api.git](https://github.com/eskye/chuck-swap-api) to your PC.
+# Technologies Used
 
-## Running the Chuck Swapi API 
+* ASP.NET Core (.NET 6) Web API  
+* SwaggerUI (OpenAPI)
+* Angular 13 (Client)
+* Bootstrap 4 (CSS Framework)
+* Nginx (Proxy)
+* Docker Compose
 
- 1. Build Image
-   ```sh
-    cd /chuck-swap-api
-     
-    docker-compose build
-   ```
+# How do I get started with Docker Compose?
 
- 2. Start the docker compose
-  ```sh
+To get started, follow the below steps:
 
-  docker-compose up
+1. Install .NET 6 SDK
+2. Install the latest NodeJS 
+3. Install Docker Desktop (for Windows) / Docker (for Linux/Mac)
+4. Clone the Solution into your Local Directory
+5. On the Repository root you can find the docker-compose.yml file
+6. Run the below command to build and run the solution in Docker (requires a working Docker installation)
+   
+ ```sh
+ docker-compose build --force-rm --no-cache && docker-compose up
+```
+7. Once the containers start successfully navigate to [http://localhost](http://localhost)
+   
+# Not using Docker. How do I get started?
 
-  ```
- 3. Open browser and navigate to the url [http://localhost:8080/swagger/index.html](http://localhost:8080/swagger/index.html)
-  
+You can also just run the solution without Docker by following the steps below:
 
- 4. You will see the swagger documentation page that will enable you to test the endpoints.
+1. Install .NET 6 SDK
+2. Install the latest NodeJS 
+3. Clone the Solution into your Local Directory
+4. Navigate to the API directory (./API) and run the below command to get the API running:
 
+```sh
+ dotnet run --project src/Sovtech.ChuckSwapi.Api 
+```
 
-## Run Visual Studio Solution
+5. Open a browser, navigate to http://localhost:8080/swagger/index.html to view the Open API documentation.
+   
+6. Navigate to the Client directory (./Client) and run the below commands to get the Angular application running:
 
-1. open chuck-swapi-api/Sovtech.ChuckSwapi.sln.
-
+```sh
+ npm install && npm start
+```
+7. Open a browser, navigate to http://localhost:4200 and you're all set!  
    
 ## Deployment 
 
