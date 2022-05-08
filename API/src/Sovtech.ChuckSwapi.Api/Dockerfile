@@ -13,10 +13,10 @@ COPY ["API/src/Sovtech.ChuckSwapi.Contracts/Sovtech.ChuckSwapi.Contracts.csproj"
 RUN dotnet restore "src/Sovtech.ChuckSwapi.Api/Sovtech.ChuckSwapi.Api.csproj"
 COPY . .
 WORKDIR "/src/src/Sovtech.ChuckSwapi.Api"
-RUN dotnet build "src/Sovtech.ChuckSwapi.Api.csproj" -c Release -o /app/build
+RUN dotnet build "Sovtech.ChuckSwapi.Api.csproj" -c Release -o /app/build
 
 FROM build AS publish
-RUN dotnet publish "src/Sovtech.ChuckSwapi.Api.csproj" -c Release -o /app/publish
+RUN dotnet publish "Sovtech.ChuckSwapi.Api.csproj" -c Release -o /app/publish
 
 FROM base AS final
 WORKDIR /app
