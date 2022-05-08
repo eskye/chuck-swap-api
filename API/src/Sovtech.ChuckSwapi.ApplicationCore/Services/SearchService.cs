@@ -18,7 +18,7 @@ public class SearchService : ISearchService
     {
         if (string.IsNullOrEmpty(query)) throw new ArgumentNullException(nameof(query), "No search query provided");
 
-        if (query.Length <= 3) throw new ApiException("search paramter value size must be between 3 and 120");
+        if (query.Length <= 3) throw new ApiException("Search paramter value size must be between 3 and 120");
 
         var jokeSearchResponse = await _chuckApiClient.GetJokesSearchResult(query); 
 

@@ -9,7 +9,7 @@ public static class HttpClientExtensions
 		if (!response.IsSuccessStatusCode)
 		{
 			if (response.StatusCode == System.Net.HttpStatusCode.NotFound)
-				throw new ApiException("Service is found but endpoint may be wrong", response.StatusCode);
+				throw new ApiException("The request was not found", response.StatusCode);
 
 			var result = await response.Content.ReadAsStringAsync();
 			return new ApplicationResponse<T>(string.IsNullOrEmpty(result) ? response.ReasonPhrase : result);
@@ -22,7 +22,7 @@ public static class HttpClientExtensions
 		if (response.IsSuccessStatusCode != true)
 		{
 			if (response.StatusCode == System.Net.HttpStatusCode.NotFound)
-				return new ApplicationResponse("Service is found but endpoint may be wrong", response.StatusCode);
+				return new ApplicationResponse("The request was not found", response.StatusCode);
 
 			var result = await response.Content.ReadAsStringAsync();
 			return new ApplicationResponse(string.IsNullOrEmpty(result) ? response.ReasonPhrase : result);
