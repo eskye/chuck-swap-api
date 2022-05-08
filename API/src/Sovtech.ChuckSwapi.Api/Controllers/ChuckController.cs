@@ -28,7 +28,7 @@ namespace Sovtech.ChuckSwapi.Api.Controllers
             return Ok(response);
         }
 
-        [HttpGet("category/{category}")]
+        [HttpGet("categories/{category}")]
         [ProducesResponseType(StatusCodes.Status400BadRequest, Type = typeof(ApiErrorResponse))]
         [ProducesResponseType(StatusCodes.Status200OK, Type = typeof(ApiResponse<JokeSearchResponse>))]
         public async Task<ActionResult<ApiResponse<JokeSearchResponse>>> GetCategoryDetail(string category)
