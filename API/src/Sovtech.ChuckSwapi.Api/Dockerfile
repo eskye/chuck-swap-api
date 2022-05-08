@@ -3,15 +3,14 @@
 FROM mcr.microsoft.com/dotnet/aspnet:6.0 AS base
 WORKDIR /app
 EXPOSE 80
-EXPOSE 443
-ENV APPDATA = var
+EXPOSE 443 
 
 FROM mcr.microsoft.com/dotnet/sdk:6.0 AS build
 WORKDIR /src
 COPY ["API/src/Sovtech.ChuckSwapi.Api/Sovtech.ChuckSwapi.Api.csproj", "src/Sovtech.ChuckSwapi.Api/"]
 COPY ["API/src/Sovtech.ChuckSwapi.ApplicationCore/Sovtech.ChuckSwapi.ApplicationCore.csproj", "src/Sovtech.ChuckSwapi.ApplicationCore/"]
 COPY ["API/src/Sovtech.ChuckSwapi.Contracts/Sovtech.ChuckSwapi.Contracts.csproj", "src/Sovtech.ChuckSwapi.Contracts/"]
-RUN dotnet restore "API/src/Sovtech.ChuckSwapi.Api/Sovtech.ChuckSwapi.Api.csproj"
+RUN dotnet restore "src/Sovtech.ChuckSwapi.Api/Sovtech.ChuckSwapi.Api.csproj"
 COPY . .
 WORKDIR "/src/src/Sovtech.ChuckSwapi.Api"
 RUN dotnet build "Sovtech.ChuckSwapi.Api.csproj" -c Release -o /app/build
