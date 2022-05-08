@@ -18,12 +18,12 @@ jobs:
     - name:  Build and push
       env:
        HEROKU_API_KEY: ${{ secrets.HEROKU_API_KEY }}
-      run: docker-compose up
-        # docker build -f API/src/Sovtech.ChuckSwapi.Api/Dockerfile . -t ${{ secrets.HEROKU_APP_NAME }}
+      run: |
+         docker build -f API/src/Sovtech.ChuckSwapi.Api/Dockerfile ./API -t ${{ secrets.HEROKU_APP_NAME }}
 
-        #docker tag ${{ secrets.HEROKU_APP_NAME }} registry.heroku.com/${{ secrets.HEROKU_APP_NAME }}/web
+         docker tag ${{ secrets.HEROKU_APP_NAME }} registry.heroku.com/${{ secrets.HEROKU_APP_NAME }}/web
 
-        #docker push registry.heroku.com/${{ secrets.HEROKU_APP_NAME }}/web 
+         docker push registry.heroku.com/${{ secrets.HEROKU_APP_NAME }}/web 
 
     - name: Release
       env:
