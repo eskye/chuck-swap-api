@@ -1,5 +1,10 @@
 # chuck-swap-api
+![Chuck-Swapi-Client](assets/client.png)
+
+![Chuck-Swapi-Api](assets/open-api.png)
+
 [![.NET](https://github.com/eskye/chuck-swap-api/actions/workflows/build-app.yml/badge.svg)](https://github.com/eskye/chuck-swap-api/actions/workflows/build-app.yml)
+
 # Introduction
 
  Chuck Swap API is an openAPI compliant web service that abstracts away two downstream APIs; the [Chuck Norris API](https://api.chucknorris.io) and the [Star Wars API](https://swapi.dev/api/). 
@@ -51,9 +56,14 @@ You can also just run the solution without Docker by following the steps below:
 ```
 7. Open a browser, navigate to http://localhost:4200 and you're all set!  
    
-## Deployment 
+## Deployments
 
-The chuck-swapi api is currently running on Heroku, and auto deployment was enabled for the repository. which automatically, deploy update made to heroku through Github actions. 
+The chuck-swapi api is currently running on Heroku and the frontend is running on Netlify, and auto deployment has been enabled for the repository. which automatically, deploy update made to heroku through Github actions. 
 
-Here's the URL of the deployed app on Heroku:
+Here's the URL of the deployed web api app on Heroku:
 [https://chuckswapi.herokuapp.com/swagger/index.html](https://chuckswapi.herokuapp.com/swagger/index.html)
+
+Here's the URL of the deployed frontend app on Netlify:
+[https://chuckswapi.netlify.app](https://chuckswapi.netlify.app)
+
+
