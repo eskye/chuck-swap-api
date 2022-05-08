@@ -14,7 +14,7 @@
 * ASP.NET Core (.NET 6) Web API  
 * SwaggerUI (OpenAPI)
 * Angular 13 (Client)
-* Bootstrap 4 (CSS Framework)
+* Bootstrap 5 (CSS Framework)
 * Nginx (Proxy)
 * Docker Compose
 
