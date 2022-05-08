@@ -1,0 +1,13 @@
+/* You can add global styles to this file, and also import other style files */
+@import url('./assets/css/bootstrap.min.css');
+@import url('./assets/fontawesome-pro-5/css/all.css');
+@import url('../node_modules/ngx-spinner/animations/ball-fussion.css');
+.mxw-500px{
+   max-width: 500px;
+}
+.justify-space-evenly{
+   justify-content: space-evenly !important;
+}
+.pointer{
+   cursor:pointer  !important;
+}

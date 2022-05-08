@@ -1,0 +1,98 @@
+   <main>
+      <div class="w-100 bg-primary py-lg-10 py-md-7 py-5">
+         <div class="container container-lg">
+            <div class="row">
+               <div class="col-6 d-flex justify-content-center">
+                  <div routerLink="/people" class="card pointer">
+                     <div class="card-img mt-2">
+                        <h3 class="text-primary text-center"><i class="fa fa-users"></i></h3>
+                     </div>
+                     <div class="card-title px-4">
+                        <h3 class="text-center text-secondary">Find People</h3>
+                     </div>
+                  </div>
+               </div>
+               <div class="col-6 d-flex justify-content-center">
+                  <div routerLink="/joke" class="card pointer">
+                     <div class="card-img mt-2">
+                        <h3 class="text-primary text-center"><i class="fa fa-smile"></i></h3>
+                     </div>
+                     <div class="card-title px-4">
+                        <h3 class="text-center text-secondary">Find Joke</h3>
+                     </div>
+                  </div>
+               </div>
+            </div>
+         </div>
+      </div>
+      <div class="container container-lg">
+         <section></section>
+         <section class="py-4">
+            <div class="d-flex py-5 py-lg-8 justify-content-center">
+               <div class="w-75">
+                  <div class="input-group">
+                     <input (change)="searchQueryChanges()" (keyup.enter)="makeQuery()" class="form-control form-control-lg" [(ngModel)]="searchText" placeholder="Search people by name or joke by category...">
+                     <span class="input-group-text pointer" (click)="makeQuery()"><i class="far fa-search"></i></span>
+                  </div>
+               </div>
+            </div>
+            <div>
+               <p class="text-center text-muted" *ngIf="searchedPeople.length <= 0 && searchedJokes.length <= 0 && searchText.length > 0"> No Result Found</p>
+               <div *ngIf="searchedPeople.length">
+                  <div class="mb-3">
+                     <h2>People Result</h2>
+                  </div>
+                  <div class="row">
+                     <div class="col-6 col-md-4 col-md-3 py-2" *ngFor="let person of searchedPeople">
+                        <div class="card">
+                           <div class="card-body">
+                              <div class="card-title mb-2">
+                                 <h4>{{person.name}}</h4>
+                              </div>
+                              <div class="card-text">
+                                 <div class="d-flex py-1 justify-content-between">
+                                    <span class="text-black-50">Height</span>
+                                    <span class="text-primary">{{person.height}}</span>
+                                 </div>
+                                 <div class="d-flex py-1 justify-content-between">
+                                    <span class="text-black-50">Mass</span>
+                                    <span class="text-primary">{{person.mass}}Kg</span>
+                                 </div>
+                                 <div class="d-flex py-1 justify-content-between">
+                                    <span class="text-black-50">Hair Color</span>
+                                    <span class="text-primary">{{person.hairColor}}</span>
+                                 </div>
+                                 <div class="d-flex py-1 justify-content-between">
+                                    <span class="text-black-50">Eye Color</span>
+                                    <span class="text-primary">{{person.eyeColor}}</span>
+                                 </div>
+                                 
+                              </div> 
+                           </div>
+                        </div>
+                     </div>
+                  </div>
+               </div>
+               <div class="mt-5" *ngIf="searchedJokes.length">
+                  <div class="mb-3">
+                     <h2>Joke Result</h2>
+                  </div>
+                  <div class="row">
+                     <div class="col-12 col-md-4 col-md-6 py-2" *ngFor="let joke of searchedJokes">
+                        <div class="card">
+                           <div class="card-body">
+                              <img [src]="joke.iconUrl" onerror="this.style.display='none'" class="card-img-top">
+                              <div class="card-body">
+                                 <div class="card-text text-black-50">
+                                   <span>{{joke.value}}</span>
+                                 </div> 
+                              </div> 
+                           </div>
+                        </div>
+                     </div>
+                  </div>
+               </div>
+            </div>
+         </section>
+      </div>
+   </main>
