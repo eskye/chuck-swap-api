@@ -1,4 +1,6 @@
-﻿namespace Sovtech.ChuckSwapi.ApplicationCore.Helpers;
+﻿using Sovtech.ChuckSwapi.ApplicationCore.Exceptions;
+
+namespace Sovtech.ChuckSwapi.ApplicationCore.Helpers;
 public static class HttpClientExtensions
 {
 
@@ -7,7 +9,7 @@ public static class HttpClientExtensions
 		if (!response.IsSuccessStatusCode)
 		{
 			if (response.StatusCode == System.Net.HttpStatusCode.NotFound)
-				return new ApplicationResponse<T>("Service is found but endpoint may be wrong", response.StatusCode);
+				throw new ApiException("Service is found but endpoint may be wrong", response.StatusCode);
 
 			var result = await response.Content.ReadAsStringAsync();
 			return new ApplicationResponse<T>(string.IsNullOrEmpty(result) ? response.ReasonPhrase : result);

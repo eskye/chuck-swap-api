@@ -1,3 +1,4 @@
+using Sovtech.ChuckSwapi.ApplicationCore.Exceptions;
 using Sovtech.ChuckSwapi.Contracts.Responses;
 using System.Text.Json;
 
@@ -31,7 +32,11 @@ public class ErrorExceptionMiddleware
                 case ArgumentNullException exception:
                     response.StatusCode = StatusCodes.Status400BadRequest;
                     responseModel = new ApiErrorResponse(error: exception.Message);
-                    break; 
+                    break;
+                case ApiException exception:
+                    response.StatusCode = StatusCodes.Status400BadRequest;
+                    responseModel = new ApiErrorResponse(error: exception.Message);
+                    break;
                 default:
                     // unhandled error
                     response.StatusCode = StatusCodes.Status500InternalServerError;
